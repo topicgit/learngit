@@ -1,6 +1,0 @@
-ps -ef
-ls -a
-top
-sar
-alias
-cd
