@@ -5,3 +5,5 @@
 2. http://coolshell.cn
 
 3. http://linuxtoy.org
+
+4. http://coolshell.cn/articles/7490.html/comment-page-1#comments  # 性能调优
