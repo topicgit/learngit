@@ -1,25 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # ************************************************************************
-#    File Name: tab.py
+#    File Name: tab1.py
 #	 Author: Tempo
 #	 Mail: wodetempo@163.com 
-#	 Created Time: 2015年03月04日 星期三 14时47分16秒
+#	 Created Time: 2015年03月04日 星期三 14时51分58秒
 # ************************************************************************
-# python startup file
 
-import os
+import sys
 import readline
 import rlcompleter
-import atexit
-import sys
+import os
 
-# tab completion
-readline.parse_and_bind('ta: complete')
-# history file
-histfile = os.path.join(os.environ['HOME'],'.pythonhistory')
-try:
-	readline.read_history_file(histfile)
-except IOError:
-	pass
-atexit.register(readline.write_history_file, histfile)
+readline.parse_and_bind('tab: complete')
+histfile = os.path.join(os.environ['HOME'], '.pythonhistory')
