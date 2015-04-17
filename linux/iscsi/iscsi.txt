@@ -13,3 +13,12 @@ tgtadm --lld iscsi --mode logicalunit --op new --tid 1│~
 
 tgtadm --lld iscsi --mode target --op bind --tid 1 --i│~                                                                   
 nitiator-address 172.16.100.0/24
+
+
+client_discovery:
+
+iscsiadm -m discovery -t st -p 172.16.100.152
+
+cleint_mount:
+
+iscsiadm -m node  -T iqn.2015-04.com.jie:tstore.disk1 -p 172.16.100.152  -l
