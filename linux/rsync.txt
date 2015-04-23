@@ -1,0 +1,39 @@
+###############################################################################
+# 1. Server 端配置如下
+
+# cat /etc/rsyncd.conf
+ 
+uid = root 
+gid = root
+use chroot = no
+max connections = 40              
+pid file = /var/run/rsyncd.pid   
+lock file = /var/run/rsync.lock  
+log file = /var/log/rsyncd.log
+ 
+[Mail]
+path = /data/mail   
+comment = eYou Ipb
+ignore errors
+read only = yes
+list = no
+###############################################################################
+
+启动rsync进程，
+rsync --daemon --config=/etc/rsyncd.conf
+
+###############################################################################
+
+# 2. 执行同步（客户端）：
+
+nohup rsync -artpogvzH  --progress --delete server_ip::Mail /data/MAIL >>/var/log/`date -I`rsync.log & 
+
+
+
+###############################################################################
+iptables 控制端口访问:
+
+iptables -A INPUT -p tcp -s 10.10.1.204(client_ip) --dport 873 -j ACCEPT
+iptables -A INPUT -p tcp -s 127.0.0.1 --dport 873 -j ACCEPT
+iptables -A INPUT -p tcp --dport 873 -j DROP
+###############################################################################
