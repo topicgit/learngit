@@ -1,3 +1,9 @@
+
+### Server 端 ###
+
+需要安装: iscsi-initiator-utils scsi-target-utils
+启动服务: tgtd    service tgtd start;chkconfig tgtd on
+
 # 创建target
 
 tgtadm --lld iscsi --mode target --op new --targetname iqn.2015-04.com.jie:tstore.disk1 --tid 1
@@ -12,6 +18,12 @@ tgtadm --lld iscsi --mode logicalunit --op new --tid 1 --lun 1 --backing-store /
 
 tgtadm --lld iscsi --mode target --op bind --tid 1 --initiator-address 172.16.100.0/24
 
+
+
+### Client 端 ###
+
+需要安装: iscsi-initiator-utils 
+启动服务: iscsi   service iscsi start;chkconfig iscsi on
 
 client_discovery:
 
