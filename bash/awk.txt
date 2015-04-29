@@ -69,3 +69,16 @@ awk -F: 'BEGIN {printf "%-15s%-10s%-25s\n","Username","ID","Shell"} \
 5.空模式
 
 
+控制语句：
+1. if-else
+awk -F: '{if ($1=="root") printf "%-15s: %s\n",$1, "Admin";else printf "%-15s: %s\n",$1, "common User"}' /etc/passwd 
+awk -F: -v sum=0 '{if ($3>=500) sum++} END {print sum}' /etc/passwd
+
+
+
+2. while
+awk -F: '{i=1;while (i<=NF) { if (length($i)>=4) {print $i};i++}}' /etc/passwd   #判断每个字段大于4个字符串
+
+
+
+
