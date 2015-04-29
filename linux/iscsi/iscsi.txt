@@ -4,6 +4,19 @@
 需要安装: iscsi-initiator-utils scsi-target-utils
 启动服务: tgtd    service tgtd start;chkconfig tgtd on
 
+config_file : /etc/iscsi/initiatorname.iscsi
+
+tgt_config_file: /etc/tgt/target.conf
+
+#############################################
+<target iqn.2015-04.com.jie:tstore.disk1>
+    backing-store /dev/sdb
+    incominguser jie jie
+    initiator-address 172.16.100.0/24
+</target>
+#############################################
+
+
 # 创建target
 
 tgtadm --lld iscsi --mode target --op new --targetname iqn.2015-04.com.jie:tstore.disk1 --tid 1
@@ -29,6 +42,6 @@ client_discovery:
 
 iscsiadm -m discovery -t st -p 172.16.100.152
 
-cleint_mount:
+client_mount:
 
 iscsiadm -m node  -T iqn.2015-04.com.jie:tstore.disk1 -p 172.16.100.152  -l

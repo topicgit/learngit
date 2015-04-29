@@ -1,0 +1,71 @@
+
+
+
+awk变量:
+
+
+FS : 输入文本时，使用的字段分隔符
+OFS : 输出字段分隔符
+RS : 输入文本信息所使用的换行符
+ORS: 输出的时候行分隔符
+
+
+变量之数据变量:
+
+NR  已经处理过的行数,绝对行数.
+FNR 相对正在处理的文件的行数
+
+NF  当前行的字段总数(域)
+
+用户自定义变量:
+
+-v   awk -v test="hello awk" 'BEGIN{print test}'
+
+awk  'BEGIN{test="hello awk";print test}'
+
+
+printf
+
+%s: 显示字符串.
+%d: 数字类型
+
+- 左对齐
+
+
+算数操作符:
+-x
++x
+x*y
+x**y
+x*y
+x/y
+x+y
+x-y
+x%y
+
+布尔值：
+
+x < y
+x <= y
+x>y
+x == y
+x ~ y
+x !~ y
+
+表达式之间的逻辑关系:
+&&
+||
+
+条件表达式:
+
+常见模式类型：
+
+1.正则表达式 awk -F: '/^r/{print $1}' /etc/passwd
+2.表达式 : awk -F: '$3>=500{print $1,$3}' /etc/passwd
+3.ranges:  awk -F: '$3==0,$7~"nologin" {print $1,$7}' /etc/passwd
+4.BEGIN/END
+awk -F: 'BEGIN {printf "%-15s%-10s%-25s\n","Username","ID","Shell"} \
+{printf "%-15s%-10s%-25s\n", $1,$3,$7} END {print "End of report..."}' /etc/passwd 
+5.空模式
+
+
