@@ -85,5 +85,9 @@ awk -F: '{i=1;while (i<=NF) { if (length($i)>=4) {print $i};i++}}' /etc/passwd  
 awk -F: '{for(i=1;i<=NF;i++) { if (length($i)>=4) {print $i}}}' /etc/passwd
 
 
+数组：
 
+awk '{count[$1]++}; END {for (ip in count) print ip,count[ip]}' nginx_access.log  #统计nginx的每个ip访问次数
+
+awk '{count[$1]++}END{for (ip in count){printf "%-20s:%d\n",ip,count[ip]}}' nginx_access.log  # 加强版
 
