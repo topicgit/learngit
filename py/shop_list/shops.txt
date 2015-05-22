@@ -1,0 +1,6 @@
+car     250000
+iphone  4999
+coffee  35
+mac     9688
+cloths  438
+Bicyle  1500
