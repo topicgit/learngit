@@ -14,7 +14,7 @@ shop_list = []
 
 while True:
 	try:
-		salary = int(raw_input('please input your  salary:'))
+		salary = int(raw_input('please input your  salary: '))
 		break
 	except ValueError:
 		print 'Please input a number, not string.'

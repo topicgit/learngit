@@ -15,4 +15,4 @@ def runCmd(uname,host,command = 0):
 	os.system(CMD)
 	print '\033[32;1mExit from %s,bye !\033[0m' % host
 
-runCmd(user,ip)
+runCmd(user,ip,cmd)
