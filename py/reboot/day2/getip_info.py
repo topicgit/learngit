@@ -1,20 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 # File Name : getip_info.py 
 # get ip info from http://ip.taobao.com/
 
 import sys
 import json
 import urllib2
-
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-
 # modify api address
 url='http://ip.taobao.com/service/getIpInfo.php?ip='
-
 
 # Function:  Get IP information
 def getip(x):
@@ -35,12 +31,10 @@ def getip(x):
         print ' ISP  : %s ' % ipdict['data']['isp']
         print '-------------------------------'
 
-
 if  len(sys.argv) != 2:
     print "-------------------------------------"
     print "  Usage : %s  ip_address"  % sys.argv[0]
     print "-------------------------------------"
-
 else :
     print ''
     print 'IP数据获取中,请您稍等...'
