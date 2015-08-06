@@ -24,7 +24,7 @@ for i in string.lowercase:
         continue
     dict[i]=a
 
-adit=sorted(dict.iteritems(), key=lambda z:z[1], reverse = True ) 
+adit=sorted(dict.iteritems(), key=lambda key:key[1], reverse = True ) 
 
 for x in range(len(adit)):
     print '| %s | %s |' % (adit[x][0],adit[x][1]) 
