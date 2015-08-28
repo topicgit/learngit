@@ -1,3 +1,3 @@
 # learngit
 
-# 记录我的技术知识，方便查询和管理
+#  Good Good  study , Day Day Up ...
