@@ -38,7 +38,7 @@ def cpuinfo():
     procinfo=OrderedDict()
 
     nprocs=0
-    with open('/root/cpuinfo') as f:
+    with open('/proc/cpuinfo') as f:
         for line in f:
             if not line.strip():
                 cpuinfo['porc%s' % nprocs] = procinfo
