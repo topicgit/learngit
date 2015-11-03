@@ -113,10 +113,10 @@ if __name__ == '__main__':
     MEMUsedPerc=100 * float('%0.2f' % (float(total-free-buffers-cached)/total))
 
     print '''内存使用情况 :
-             内存使用率   : %s%%
-             物理内存     : %s M
-             空闲内存     : %s M 
-             Swap 总空间  : %s M\n'''  %  (MEMUsedPerc,total/1024,free/1024,swap/1024)
+               内存使用率   : %s%%
+               物理内存     : %s M
+               空闲内存     : %s M 
+               Swap 总空间  : %s M\n'''  %  (MEMUsedPerc,total/1024,free/1024,swap/1024)
 
     up_stat = uptime_stat()
     print '系统运行时间 : %s天%s小时%s分%s秒' \
