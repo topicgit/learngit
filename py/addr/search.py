@@ -22,23 +22,19 @@ def Search(sea):
 	addrFile.close()
 
 	if sea in d :
-		print
 		print '\t--------------------------------'
 		print '\t Name : %s' % sea
 		print '\t Tel  : %s' % d[sea][0] 
 		print '\t Email: %s' % d[sea][1]
-		print '\t--------------------------------'
 		print
 	else :
 		num = 0
 		for k,v in d.items():
 			if sea in v  :
-				print
 				print '\t--------------------------------'
 				print '\t Name : %s' % k
 				print '\t Tel  : %s' % v[0]
 				print '\t Email: %s' % v[1]
-				print '\t--------------------------------'
 				print
 				num = 1
 			else :
@@ -59,6 +55,16 @@ def Add(a_name,a_tel,a_email):
 	p.dump(d,addrFile)
 	addrFile.close()
 
+def Del(name):
+	addrFile = file(dbfile,'rb')
+	d = p.load(addrFile)
+	addrFile.close()
+
+	d.pop(name)
+	addrFile = file(dbfile,'w')
+	p.dump(d,addrFile)
+	addrFile.close()
+
 def Print_all():
 	addrFile = file(dbfile,'rb')
 	d = p.load(addrFile)
@@ -67,12 +73,10 @@ def Print_all():
 	num = 0
 	for k,v in d.items():
 
-		print
 	 	print '\t--------------------------------'
 		print '\t Name : %s' % k
 		print '\t Tel  : %s' % v[0]
 		print '\t Email: %s' % v[1]
-		print '\t--------------------------------'
 		print
 		num += 1
 	
@@ -101,6 +105,11 @@ elif sys.argv[1] == '-A' or sys.argv[1] == '--add':
 	Email = sys.argv[4]
 	Add(Name,Tel,Email)
 
+elif sys.argv[1] == '-D' or sys.argv[1] == '--del':
+
+	Con_exit(3)
+	Name = sys.argv[2]
+	Del(Name)
 elif sys.argv[1] == '-P' or sys.argv[1] == '--print':
 	Con_exit(1)
 	Print_all()

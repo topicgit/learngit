@@ -6,5 +6,6 @@ addrf = 'addr.data'
 
 f=file(addrf,'rb')
 d=p.load(f)
+d.pop('yanhao')
 
 print d
