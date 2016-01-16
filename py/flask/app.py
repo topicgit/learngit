@@ -4,10 +4,21 @@ from flask import Flask,render_template
 
 app = Flask(__name__)
 
+@app.route('/hello/')
+@app.route('/hello/<name>')
+def hello(name=None):
+	return render_template('hello.html',name=name)
+
 @app.route('/')
 def index():
 	return '<h1>Welcome Home Page</h1>'
 
+@app.route('/login', methods=['GET','POST'])
+def login():
+	if request.method == 'POST':
+		do_the_login()
+	else:
+		show_the_login_from()
 @app.route('/user/<name>')
 def user(name):
 	return render_template('user.html',user=name)
